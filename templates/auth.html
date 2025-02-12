@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login and Registration Form</title>
+    <link rel="stylesheet" href="../static/auth.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <input type="checkbox" id="flip" />
+      <div class="cover">
+        <div class="front">
+          <img src="../static/images/frontImg.jpg" alt="" />
+          <div class="text">
+            <span class="text-1"
+              >Every new friend is a <br />new adventure</span
+            >
+            <span class="text-2">Let's get connected</span>
+          </div>
+        </div>
+        <div class="back">
+          <img class="backImg" src="../static/images/backImg.jpg" alt="" />
+          <div class="text">
+            <span class="text-1"
+              >Complete miles of journey <br />with one step</span
+            >
+            <span class="text-2">Let's get started</span>
+          </div>
+        </div>
+      </div>
+      <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+            <!-- Erreur générale venant du backend -->
+            <!-- Nouvelle section pour afficher les erreurs générales -->
+            <form
+              method="POST"
+              action="{{ url_for('views.login') }}"
+              id="loginForm"
+            >
+              <div class="input-boxes">
+                <div class="input-box">
+                  <i class="fas fa-envelope"></i>
+                  <input
+                    type="text"
+                    name="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                  />
+                  <span class="error" id="emailError"></span>
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-lock"></i>
+                  <input
+                    type="password"
+                    name="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                  />
+                  <span class="error" id="passwordError"></span>
+                </div>
+                <div class="text"><a href="#">Forgot password?</a></div>
+                <div class="button input-box">
+                  <input type="submit" value="Submit" />
+                </div>
+                <div class="text sign-up-text">
+                  Don't have an account? <label for="flip">Signup now</label>
+                  <div class="error-message" id="generalError"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Signup Form -->
+          <div class="signup-form">
+            <div class="title">Signup</div>
+            <form
+              method="POST"
+              action="{{ url_for('views.register') }}"
+              id="signupForm"
+              enctype="multipart/form-data"
+              <!--
+              Important
+              for
+              file
+              uploads
+              --
+            >
+              <div class="input-boxes">
+                <div class="input-box">
+                  <i class="fas fa-user"></i>
+                  <input
+                    type="text"
+                    name="username"
+                    id="signupUsername"
+                    placeholder="Enter your username"
+                  />
+                  <span class="error" id="usernameError"></span>
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-envelope"></i>
+                  <input
+                    type="text"
+                    name="email"
+                    id="signupEmail"
+                    placeholder="Enter your email"
+                  />
+                  <span class="error" id="signupEmailError"></span>
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-lock"></i>
+                  <input
+                    type="password"
+                    name="password"
+                    id="signupPassword"
+                    placeholder="Enter your password"
+                  />
+                  <span class="error" id="signupPasswordError"></span>
+                </div>
+                <!-- Profile Image Upload -->
+                <!-- Profile Image Upload -->
+                <div class="input-box">
+                  <i class="fas fa-image"></i>
+                  <input
+                    type="file"
+                    name="profile_image"
+                    accept="image/*"
+                    id="profileImage"
+                    style="display: none"
+                  />
+                  <label for="profileImage" style="margin-left: 30px"
+                    >Choose Image</label
+                  >
+                  <span id="fileName" class="file-name"></span>
+                </div>
+                <!-- Profile Image Upload -->
+
+                <div class="button input-box">
+                  <input type="submit" value="Submit" />
+                  <i class="fas fa-upload"></i>
+                </div>
+
+                <div class="text sign-up-text">
+                  Already have an account? <label for="flip">Login now</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Validation Script -->
+    <script>
+      function validateEmail(email) {
+        const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return re.test(email);
+      }
+
+      function validatePassword(password) {
+        const re = /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{9,}$/;
+        return re.test(password);
+      }
+
+      // Login Form Validation
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          let valid = true;
+          const email = document.getElementById("loginEmail").value;
+          const password = document.getElementById("loginPassword").value;
+          document.getElementById("emailError").textContent = "";
+          document.getElementById("passwordError").textContent = "";
+
+          // Validate Email
+          if (email.trim() === "") {
+            valid = false;
+            document.getElementById("emailError").textContent =
+              "Email cannot be empty!";
+          } else if (!validateEmail(email)) {
+            valid = false;
+            document.getElementById("emailError").textContent =
+              "Invalid email format!";
+          }
+
+          // Validate Password
+          if (password.trim() === "") {
+            valid = false;
+            document.getElementById("passwordError").textContent =
+              "Password cannot be empty!";
+          } else if (!validatePassword(password)) {
+            valid = false;
+            document.getElementById("passwordError").textContent =
+              "Password must be at least 9 characters, contain numbers and special characters!";
+          }
+
+          if (!valid) {
+            event.preventDefault(); // Prevent form submission if validation fails
+          }
+        });
+
+      // Remove error messages when the user starts typing
+      document
+        .getElementById("loginEmail")
+        .addEventListener("input", function () {
+          document.getElementById("emailError").textContent = "";
+        });
+
+      document
+        .getElementById("loginPassword")
+        .addEventListener("input", function () {
+          document.getElementById("passwordError").textContent = "";
+        });
+
+      // Signup Form Validation
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (event) {
+          let valid = true;
+          const username = document.getElementById("signupUsername").value;
+          const email = document.getElementById("signupEmail").value;
+          const password = document.getElementById("signupPassword").value;
+
+          document.getElementById("usernameError").textContent = "";
+          document.getElementById("signupEmailError").textContent = "";
+          document.getElementById("signupPasswordError").textContent = "";
+
+          // Validate Username
+          if (username.trim() === "") {
+            valid = false;
+            document.getElementById("usernameError").textContent =
+              "Username cannot be empty!";
+          }
+
+          // Validate Email
+          if (email.trim() === "") {
+            valid = false;
+            document.getElementById("signupEmailError").textContent =
+              "Email cannot be empty!";
+          } else if (!validateEmail(email)) {
+            valid = false;
+            document.getElementById("signupEmailError").textContent =
+              "Invalid email format!";
+          }
+
+          // Validate Password
+          if (password.trim() === "") {
+            valid = false;
+            document.getElementById("signupPasswordError").textContent =
+              "Password cannot be empty!";
+          } else if (!validatePassword(password)) {
+            valid = false;
+            document.getElementById("signupPasswordError").textContent =
+              "Password must be at least 9 characters, contain numbers and special characters!";
+          }
+
+          if (!valid) {
+            event.preventDefault(); // Prevent form submission if validation fails
+          }
+        });
+
+      // Remove error messages when the user starts typing
+      document
+        .getElementById("signupUsername")
+        .addEventListener("input", function () {
+          document.getElementById("usernameError").textContent = "";
+        });
+
+      document
+        .getElementById("signupEmail")
+        .addEventListener("input", function () {
+          document.getElementById("signupEmailError").textContent = "";
+        });
+
+      document
+        .getElementById("signupPassword")
+        .addEventListener("input", function () {
+          document.getElementById("signupPasswordError").textContent = "";
+        });
+
+      document
+        .getElementById("profileImage")
+        .addEventListener("change", function () {
+          const fileName = this.files[0] ? this.files[0].name : "";
+          document.getElementById("fileName").textContent = fileName;
+        });
+
+      // Si une erreur est envoyée par le backend, mettez à jour l'élément généralError avec ce message
+      // Si une erreur est envoyée par le backend, mettez à jour l'élément généralError avec ce message
+      const backendErrorMessage = ""; // Exemple, cela peut venir de votre backend
+      if (backendErrorMessage) {
+        document.getElementById("generalError").textContent =
+          backendErrorMessage;
+        document.getElementById("generalError").style.color = "red"; // Changez la couleur pour l'erreur
+      }
+
+      // Masquer l'erreur lorsque l'utilisateur commence à taper dans les champs
+      document
+        .getElementById("loginEmail")
+        .addEventListener("input", function () {
+          document.getElementById("generalError").textContent = ""; // Masquer l'erreur lorsque l'utilisateur commence à taper
+        });
+
+      document
+        .getElementById("loginPassword")
+        .addEventListener("input", function () {
+          document.getElementById("generalError").textContent = ""; // Masquer l'erreur lorsque l'utilisateur commence à taper
+        });
+
+      // Vous pouvez aussi gérer l'erreur en la supprimant lorsque le formulaire est soumis à nouveau.
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function () {
+          // Reset the error message before sending the form (if needed)
+          document.getElementById("generalError").textContent = ""; // Masquer l'erreur lorsque le formulaire est soumis
+        });
+    </script>
+  </body>
+</html>

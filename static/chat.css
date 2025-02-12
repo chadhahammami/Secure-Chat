@@ -1,0 +1,613 @@
+body {
+  background-color: ;
+}
+.container-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  background-color: #6580b8; /* Ajouté pour un léger espacement à l'intérieur */
+}
+
+img {
+  max-width: 100%;
+}
+
+.inbox_people {
+  background: #ffffff none repeat scroll 0 0;
+  float: left;
+  overflow: hidden;
+  width: 40%;
+  border-right: 1px solid #c4c4c4;
+}
+
+.inbox_msg {
+  border: 1px solid #c4c4c4;
+  clear: both;
+  overflow: hidden;
+}
+
+.top_spac {
+  margin: 20px 0 0;
+}
+
+.recent_heading {
+  float: left;
+  width: 27%;
+}
+
+.srch_bar {
+  display: inline-block;
+  text-align: right;
+  width: 40%;
+}
+
+.headind_srch {
+  display: flex;
+  justify-content: space-between; /* Espace entre les éléments */
+  align-items: center; /* Alignement vertical au centre */
+  padding: 10px 15px;
+  overflow: hidden;
+  border-bottom: 1px solid #c4c4c4;
+  background: #6580b8;
+}
+
+.recent_heading h4 {
+  color: #ffffff;
+  font-size: 21px;
+  margin: auto;
+}
+
+.srch_bar input {
+  border: 1px solid #ffffff;
+  border-width: 0 0 1px 0;
+  width: 85%;
+  padding: 2px 0 4px 6px;
+  background: none;
+}
+
+.srch_bar .input-group-addon button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  padding: 0;
+  color: #f9f9f9;
+  font-size: 18px;
+}
+
+.srch_bar .input-group-addon {
+  margin: 0 0 0 -27px;
+}
+
+/* NEW-CHAT BUTTON STYLES */
+
+.headind_srch > .new_chat {
+  width: 30%;
+  z-index: 100;
+}
+
+.headind_srch > .new_chat > button {
+  outline: none;
+  border: none;
+  width: 80%;
+  margin-left: 20%;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  border-width: 0 0 1px 0;
+}
+
+.headind_srch > .new_chat form {
+  background: #e5e5e5;
+  margin-top: 10px;
+  display: none;
+  padding: 15px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 500;
+}
+
+.headind_srch > .new_chat form[type="submit"] {
+  cursor: pointer;
+}
+
+#new_chat_overlay {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+.chat_people {
+  display: flex;
+  align-items: center; /* Aligne l'image et le texte verticalement */
+  justify-content: flex-start; /* Place les éléments au début (à gauche) */
+}
+
+.chat_ib h5 {
+  font-size: 15px;
+  color: #464646;
+  margin: 0;
+  display: inline-block; /* Assure que le texte et l'image restent sur la même ligne */
+}
+
+.chat_ib h5 span {
+  font-size: 13px;
+  float: right;
+}
+
+.chat_ib p {
+  font-size: 14px;
+  color: #989898;
+  margin: auto;
+}
+
+.chat_img {
+  float: left;
+}
+
+.chat_ib {
+  float: left;
+  padding: 0 0 0 15px;
+  width: 88%;
+}
+
+.chat_list {
+  border-bottom: 1px solid #c4c4c4;
+  margin: 0;
+  padding: 18px 16px 10px;
+}
+
+.inbox_chat {
+  height: 560px;
+  overflow-y: scroll;
+}
+
+.active_chat {
+  background: #ebebeb;
+}
+
+.received_msg {
+  display: inline-block;
+  padding: 0 0 0 10px;
+  vertical-align: top;
+  width: 92%;
+}
+
+.received_withd_msg p {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 3px;
+  color: #646464;
+  font-size: 14px;
+  margin: 0;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+}
+
+.time_date {
+  color: #747474;
+  display: block;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
+.received_withd_msg {
+  width: 57%;
+}
+
+.mesgs {
+  float: left;
+  padding: 30px 15px 0 25px;
+  width: 60%;
+  background-color: #f4f6f8;
+}
+
+.sent_msg p {
+  background: #6580b8 none repeat scroll 0 0;
+  border-radius: 3px;
+  font-size: 14px;
+  margin: 0;
+  color: #fff;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+}
+
+.outgoing_msg {
+  overflow: hidden;
+  margin: 26px 0 26px;
+}
+
+.sent_msg {
+  float: right;
+  width: 46%;
+}
+
+.input_msg_write input {
+  border: medium none;
+  color: #4c4c4c;
+  font-size: 15px;
+  min-height: 48px;
+  width: 90%;
+}
+
+.type_msg {
+  border-top: 1px solid #c4c4c4;
+  position: relative;
+}
+
+.msg_send_btn {
+  background: #6580b8 none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+}
+
+.msg_history {
+  height: 560px;
+  overflow-y: auto;
+}
+/* chat.css */
+
+.selected-chat {
+  background-color: #f4f6f8; /* couleur de fond pour la conversation sélectionnée */
+}
+
+.chat_img img.user-image {
+  width: 70px; /* Ajuste la taille de l'image */
+  height: 70px; /* Maintient la proportion de l'image */
+  border-radius: 50%; /* Laisse l'image circulaire */
+  object-fit: cover; /* Pour que l'image remplisse bien le cadre sans déformation */
+}
+.headind_srch > .new_chat > button {
+  outline: none;
+  border: none;
+  width: 80%;
+  margin-left: 20%;
+  cursor: pointer;
+  background: white;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.headind_srch > .new_chat form {
+  background: #e5e5e5;
+  margin-top: 10px;
+  display: none;
+  padding: 20px;
+  border: 1px solid #6580b8;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headind_srch > .new_chat form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.headind_srch > .new_chat form input[type="submit"] {
+  cursor: pointer;
+  background-color: #6580b8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.headind_srch > .new_chat form input[type="submit"]:hover {
+  background-color: #6580b8;
+}
+#new_chat_overlay {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent pour obscurcir l'arrière-plan */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  z-index: 1000;
+}
+.chat_list {
+  border-bottom: 1px solid #c4c4c4;
+  margin: 0;
+  padding: 18px 16px 10px;
+  transition: background-color 0.3s ease;
+}
+
+.chat_list:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.chat_ib h5 {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+.chat_ib p {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+.headind_srch > .new_chat {
+  display: flex; /* Utilisation de flexbox pour aligner les boutons horizontalement */
+  justify-content: space-between; /* Espace entre les boutons */
+  width: 100%;
+}
+
+#new_chat_btn {
+  background-color: #6580b8;
+  color: #fff;
+  border-radius: 8px;
+}
+
+#exit_btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+#close-chat-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #6580b8;
+}
+
+/* Personnaliser la scrollbar pour les messages */
+.msg_history {
+  max-height: 580px; /* Ajustez la hauteur selon vos besoins */
+  overflow-y: auto; /* Activer le défilement vertical */
+}
+
+/* Personnaliser la scrollbar pour la liste des utilisateurs */
+
+/* Style général de la scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Largeur de la scrollbar */
+  height: 8px; /* Hauteur de la scrollbar (pour le scroll horizontal) */
+}
+
+/* Style de la piste de la scrollbar */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Couleur de fond de la piste */
+  border-radius: 10px; /* Coins arrondis de la piste */
+}
+
+/* Style du curseur de la scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Couleur du curseur */
+  border-radius: 10px; /* Coins arrondis du curseur */
+}
+
+/* Style du curseur au survol */
+::-webkit-scrollbar-thumb:hover {
+  background: #797979; /* Couleur du curseur au survol */
+}
+
+/* Design amélioré du bouton New Chat */
+.headind_srch > .new_chat > button {
+  outline: none;
+  border: none;
+  width: 80%;
+  margin-left: 20%;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6580b8, #4a5d81);
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.headind_srch > .new_chat > button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #4a5d81, #6580b8);
+}
+
+/* Fenêtre du formulaire New Chat */
+.headind_srch > .new_chat form {
+  background: #f0f0f0;
+  margin-top: 10px;
+  display: none;
+  padding: 20px;
+  border: 1px solid #6580b8;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Fixer la largeur */
+  left: 50%;
+  transform: translateX(-50%); /* Centrer horizontalement */
+}
+
+.headind_srch > .new_chat form input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.headind_srch > .new_chat form input[type="text"]:focus {
+  border-color: #6580b8;
+}
+
+/* Bouton de soumission */
+.headind_srch > .new_chat form input[type="submit"] {
+  cursor: pointer;
+  background-color: #6580b8;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.headind_srch > .new_chat form input[type="submit"]:hover {
+  background-color: #4a5d81;
+}
+
+/* Overlay de fond pour New Chat */
+#new_chat_overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+/* Style de la scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #797979;
+}
+
+.new_chat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+
+#new_chat_btn {
+  background-color: #6580b8;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#exit_btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+#new_chat_overlay {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent pour obscurcir l'arrière-plan */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.headind_srch > .new_chat form {
+  background: #e5e5e5;
+  display: none;
+  padding: 20px;
+  border: 1px solid #6580b8;
+  border-radius: 10px;
+  position: fixed; /* Utilisation de fixed pour qu'il soit centré sur l'écran */
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrer parfaitement la fenêtre */
+  z-index: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Ajustez la largeur du formulaire selon vos besoins */
+}
+
+.headind_srch > .new_chat > button {
+  outline: none;
+  border: none;
+  width: 80%;
+  margin-left: 20%;
+  cursor: pointer;
+  background: white;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.headind_srch > .new_chat form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.headind_srch > .new_chat form input[type="submit"] {
+  cursor: pointer;
+  background-color: #6580b8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.headind_srch > .new_chat form input[type="submit"]:hover {
+  background-color: #6580b8;
+}
